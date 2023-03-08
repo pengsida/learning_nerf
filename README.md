@@ -30,42 +30,41 @@ data/nerf_synthetic
 ```
 
 
-# 从Image fitting demo来学习这个框架
+## 从Image fitting demo来学习这个框架
 
 
-## 任务定义
+### 任务定义
 
-利用一个MLP，以某一张图像的像素坐标作为输入, 输出这一张图像在该像素坐标的位置。
+训练一个MLP，将某一张图像的像素坐标作为输入, 输出这一张图像在该像素坐标的RGB value。
 
-
-## Training
+### Training
 
 ```
 python train_net.py --cfg_file configs/img_fit/lego_view0.yaml
 ```
 
-## Evaluation
+### Evaluation
 
 ```
 python run.py --type evaluate --cfg_file configs/img_fit/lego_view0.yaml
 ```
 
-## 查看loss曲线
+### 查看loss曲线
 
 ```
 tensorboard --logdir=data/record --bind_all
 ```
 
 
-# 开始复现NeRF
+## 开始复现NeRF
 
-## 配置文件
+### 配置文件
 
 我们已经在configs/nerf/ 创建好了一个配置文件，nerf.yaml。其中包含了复现NeRF必要的参数。
 你可以根据自己的喜好调整对应的参数的名称和风格。
 
 
-## 创建dataset： lib.datasets.nerf.synthetic.py
+### 创建dataset： lib.datasets.nerf.synthetic.py
 
 核心函数包括：init, getitem, len.
 
@@ -77,36 +76,34 @@ getitem函数负责在运行时提供给网络一次训练需要的输入，以�
 len函数是训练或者测试的数量。getitem函数获得的index值通常是[0, len-1]。
 
 
-### debug：
+#### debug：
 
 ```
 python run.py --type dataset --cfg_file configs/img_fit/lego_view0.yaml
 ```
 
-## 创建network:
+### 创建network:
 
 核心函数包括：init, forward.
 
 init函数负责定义网络所必需的模块，forward函数负责接收dataset的输出，利用定义好的模块，计算输出。例如，对于NeRF来说，我们需要在init中定义两个mlp以及encoding方式，在forward函数中，使用rays完成计算。
 
 
-### debug：
+#### debug：
 
 ```
 python run.py --type network --cfg_file configs/img_fit/lego_view0.yaml
 ```
 
-## loss模块和evaluator模块
+### loss模块和evaluator模块
 
 这两个模块较为简单，不作仔细描述。
-
 
 debug方式分别为：
 
 ```
 python train_net.py --cfg_file configs/img_fit/lego_view0.yaml
 ```
-
 
 ```
 python run.py --type evaluate --cfg_file configs/img_fit/lego_view0.yaml
