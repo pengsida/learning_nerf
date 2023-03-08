@@ -9,7 +9,7 @@ This repository is initially created by [Haotong Lin](https://haotongl.github.io
 
 ## Prerequisites
 
-1. 确保你已经熟悉使用python, 尤其是debug工具： ipdb.
+1. 确保你已经熟悉使用python, 尤其是debug工具：ipdb。
 
 2. 计算机科学非常讲究自学能力和自我解决问题的能力，如果有一些内容没有介绍的十分详细，请先自己尝试探索代码框架。如果遇到代码问题，请先搜索网上的资料，或者查看仓库的Issues里有没有相似的已归档的问题。
 
