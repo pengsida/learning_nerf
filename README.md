@@ -1,4 +1,8 @@
-# LearningNeRF
+# Learning NeRF
+
+This repository is initially created by [Haotong Lin](https://haotongl.github.io/).
+
+## Prerequisites
 
 1. 确保你已经熟悉使用python, 尤其是debug工具： ipdb.
 
