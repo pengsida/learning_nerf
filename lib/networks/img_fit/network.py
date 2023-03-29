@@ -18,14 +18,6 @@ class Network(nn.Module):
                 nn.Sigmoid()
                 )
 
-    def forward_network(self, xyz, xyz_dir, network):
-        N_rays, N_samples = xyz.shape[:2]
-        xyz, xyz_dir = xyz.reshape(-1, xyz.shape[-1]), xyz_dir.reshape(-1, xyz_dir.shape[-1])
-        xyz_encoding = self.xyz_encoder(xyz)
-        dir_encoding = self.dir_encoder(xyz_dir)
-        net_output = network(torch.cat([xyz_encoding, dir_encoding], dim=-1))
-        return net_output.reshape(N_rays, N_samples, -1)
-
     def render(self, uv, batch):
         uv_encoding = self.uv_encoder(uv)
         x = uv_encoding

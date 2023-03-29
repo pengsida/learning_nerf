@@ -3,7 +3,8 @@ gpus: [0]
 exp_name: 'nerf'
 scene: 'lego'
 
-train_dataset_module: lib.datasets.nerf.synthetic
+# module path
+train_dataset_module: lib.datasets.nerf.synthetic 
 test_dataset_module: lib.datasets.nerf.synthetic
 network_module: lib.networks.nerf.network
 loss_module: lib.train.losses.nerf
@@ -11,18 +12,18 @@ evaluator_module: lib.evaluators.nerf
 visualizer_module: lib.visualizers.nerf
 
 task_arg:
-    N_rays: 1024
-    chunk_size: 4096
-    white_bkgd: True
-    cascade_samples: [64, 128]
+    N_rays: 1024 # number of rays per training iteration
+    chunk_size: 4096 # chunkify
+    white_bkgd: True # use white background
+    cascade_samples: [64, 128] # importance sampling, you can set it to [64] for the initial implemetation
 
 network:
     nerf:
-        W: 256
-        D: 8
-        V_D: 1
+        W: 256 # width
+        D: 8 # depth
+        V_D: 1 # appearance depth
     xyz_encoder:
-        type: 'frequency'
+        type: 'frequency' # positional encoding
         input_dim: 3
         freq: 10
     dir_encoder:
@@ -33,8 +34,8 @@ network:
 train_dataset:
     data_root: 'data/nerf_synthetic'
     split: 'train'
-    input_ratio: 1.
-    cams: [0, -1, 1] 
+    input_ratio: 1. # input image ratio, you can set it to 0.5 to acclerate training
+    cams: [0, -1, 1] # input cameras, you can use this variable to select training images
 
 test_dataset:
     data_root: 'data/nerf_synthetic'
