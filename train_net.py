@@ -17,6 +17,13 @@ if cfg.fix_random:
 
 
 def train(cfg, network):
+    train_loader = make_data_loader(cfg,
+                                    is_train=True,
+                                    is_distributed=cfg.distributed,
+                                    max_iter=cfg.ep_iter)
+    val_loader = make_data_loader(cfg, is_train=False)
+    trainer = make_trainer(cfg, network, train_loader)
+
     optimizer = make_optimizer(cfg, network)
     scheduler = make_lr_scheduler(cfg, optimizer)
     recorder = make_recorder(cfg)
@@ -32,13 +39,6 @@ def train(cfg, network):
         load_pretrain(network, cfg.pretrain)
 
     set_lr_scheduler(cfg, scheduler)
-
-    train_loader = make_data_loader(cfg,
-                                    is_train=True,
-                                    is_distributed=cfg.distributed,
-                                    max_iter=cfg.ep_iter)
-    val_loader = make_data_loader(cfg, is_train=False)
-    trainer = make_trainer(cfg, network, train_loader)
 
     for epoch in range(begin_epoch, cfg.train.epoch):
         recorder.epoch = epoch
