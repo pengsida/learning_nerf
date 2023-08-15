@@ -5,7 +5,7 @@ This repository is initially created by [Haotong Lin](https://haotongl.github.io
 ## Motivation of this repository
 
 1. 面向实验室本科生的科研训练。通过复现NeRF来学习NeRF的算法、PyTorch编程。
-2. 这个框架是实验室常用的代码框架，实验室的一些算法在这个框架下实现，比如：[MLP Maps](https://github.com/zju3dv/mlp_maps), [Animatable NeRF](https://github.com/zju3dv/animatable_nerf), [Neural Body](https://github.com/zju3dv/neuralbody)。实验室通过大量实践证明了这个代码框架的灵活性。学会使用这个框架，方便后续参与实验室的Project，也方便自己实现新的算法。
+2. 这个框架是实验室常用的代码框架，实验室的一些算法在这个框架下实现，比如：[ENeRF](https://github.com/zju3dv/enerf), [NeuSC](https://github.com/zju3dv/NeuSC), [MLP Maps](https://github.com/zju3dv/mlp_maps), [Animatable NeRF](https://github.com/zju3dv/animatable_nerf), [Neural Body](https://github.com/zju3dv/neuralbody)。实验室通过大量实践证明了这个代码框架的灵活性。学会使用这个框架，方便后续参与实验室的Project，也方便自己实现新的算法。
 
 ## Prerequisites
 
