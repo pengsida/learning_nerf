@@ -79,7 +79,7 @@ len函数是训练或者测试的数量。getitem函数获得的index值通常�
 #### debug：
 
 ```
-python run.py --type dataset --cfg_file configs/img_fit/lego_view0.yaml
+python run.py --type dataset --cfg_file configs/nerf/nerf.yaml
 ```
 
 ### 创建network:
@@ -92,7 +92,7 @@ init函数负责定义网络所必需的模块，forward函数负责接收datase
 #### debug：
 
 ```
-python run.py --type network --cfg_file configs/img_fit/lego_view0.yaml
+python run.py --type network --cfg_file configs/nerf/nerf.yaml
 ```
 
 ### loss模块和evaluator模块
@@ -102,9 +102,9 @@ python run.py --type network --cfg_file configs/img_fit/lego_view0.yaml
 debug方式分别为：
 
 ```
-python train_net.py --cfg_file configs/img_fit/lego_view0.yaml
+python train_net.py --cfg_file configs/nerf/nerf.yaml
 ```
 
 ```
-python run.py --type evaluate --cfg_file configs/img_fit/lego_view0.yaml
+python run.py --type evaluate --cfg_file configs/nerf/nerf.yaml
 ```
